@@ -1,5 +1,6 @@
-/* Import Syne leading font */
+/* Import Syne font */
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap');
+
 
 /* Normalisation de base de tous les elements html */
 * {
@@ -8,7 +9,7 @@
     box-sizing: border-box;
     background-color: black;
     color: white; 
-    font-family: 'Marshmallow', sans-serif;
+    font-family: sans-serif;
 }
 
 body{
@@ -40,30 +41,10 @@ header {
     transition: transform 0.3s ease;
 }
 
-/* Style du nav */
-
-
-li {
-    position: relative;
+nav{
+    display: none;
 }
 
-/* Barre blanche verticale */
-li::after {
-    content: "";
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background-color: white;
-    transform: scaleX(0); /* Pour masquer la barre au départ */
-    transition: transform 0.3s ease;
-}
-
-/* Effet d'hover */
-li:hover::after {
-    transform: scaleX(1); /* Pour afficher la barre lors du survol */
-}
 
 /* Style du main */
 
@@ -121,27 +102,90 @@ li:hover::after {
     scroll-behavior: smooth;
 }
 
-.carousel img {
+.carousel .image-wrapper {
+    position: relative;
+    display: inline-block;
+    height: 400px;
+    width: 648px;
+    margin: 60px;
+    overflow: hidden;
+    filter: grayscale(0%);
+    transition: filter 0.5s ease;
+  }
+
+.carousel .image-wrapper img {
     height: 350px;
     width: 608px;
     object-fit: cover;
-    margin: 80px;
     filter: grayscale(100%);
     transition: filter 0.5s ease;
 }
 
+.carousel .image-wrapper .projet {
+    position: absolute;
+    bottom: 0;
+    margin-left: 15%;
+    width: 70%;
+    padding: 20px;
+    background-color: black;
+    transition: width 0.5s ease, margin-left 0.5s ease;
+}
+
+  
+.carousel .image-wrapper .projet p {
+    font-size: 20px;
+}
+  
+.carousel .image-wrapper .projet h2 {
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Syne', serif;
+    transition: letter-spacing 0.5s ease, left 0.5s ease;
+}
+
+.carousel .image-wrapper .rectangle {
+    filter: grayscale(0%);
+    position: absolute;
+    margin-top: 20px;
+    margin-left: 20px;
+    height: 350px;
+    width: 608px;
+    background-color: transparent;
+    border: 2px solid rgb(102, 16, 245);
+    z-index: -1;
+    transition: margin-top 0.5s ease, margin-left 0.5s ease;
+}
 
 
-.carousel img:hover {
+.carousel .image-wrapper:hover img{
     filter: grayscale(0%);
     transition: filter 0.5s ease;
 }
+
+.carousel .image-wrapper:hover .projet {
+    width: 80%;
+    margin-left:10%;
+    transition: width 0.5s ease, margin-left 0.5s ease;
+}
+
+.carousel .image-wrapper:hover .projet h2 {
+    letter-spacing: 3px;
+    transition: letter-spacing 0.5s ease, left 0.5s ease;
+}
+
+.carousel .image-wrapper:hover .rectangle {
+    margin-top:30px;
+    margin-left: 30px;
+    transition: margin-top 0.5s ease, margin-left 0.5s ease;
+}
+  
 
 
 #navArrow {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-bottom: 20px;
 }
 
 #carouselProgressBar {
@@ -178,19 +222,14 @@ li:hover::after {
         justify-content: space-around;
     }
 
-    /* Annule l'état de base des listes */
-    ul {
-        list-style: none;
-    }
-
     a {
         text-decoration: none;
     }
 
-    /* TO DO : Penser a enlever l'effet cursor pointer lors d'un hover sur le nav */
 
     /* Mets les éléments de la liste en flex */
     ul {
+        list-style: none;
         display: flex;
         justify-content: space-around;
         align-items: center;
@@ -198,7 +237,28 @@ li:hover::after {
 
     li {
         margin: 0 20px;
+        position: relative;
     }
+
+    /* Barre blanche verticale */
+    li::after {
+        content: "";
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: white;
+        transform: scaleX(0); /* Pour masquer la barre au départ */
+        transition: transform 0.3s ease;
+    }
+
+    /* Effet d'hover */
+    li:hover::after {
+        transform: scaleX(1); /* Pour afficher la barre lors du survol */
+    }
+
+
     nav {
         display: block;
     }
