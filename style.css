@@ -1,0 +1,212 @@
+/* Import Syne leading font */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@800&display=swap');
+
+/* Normalisation de base de tous les elements html */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: black;
+    color: white; 
+    font-family: 'Marshmallow', sans-serif;
+}
+
+body{
+cursor: url("img/pointer-petit.svg") 6 6, auto
+}
+
+/* Lors d'un clic le curseur grandit */
+body:active {
+    cursor: url("img/pointer-grand.svg") 12 12, auto;
+}
+
+/* Style du body */
+
+/* Style du header */
+header {
+    display: flex;
+    height: 150px;
+    align-items: center;
+    margin-left: 20px;
+}
+
+#logo {
+    height: 75px;
+    transition: transform 0.3s ease;
+}
+
+#logo:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease;
+}
+
+/* Style du nav */
+
+
+li {
+    position: relative;
+}
+
+/* Barre blanche verticale */
+li::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0); /* Pour masquer la barre au départ */
+    transition: transform 0.3s ease;
+}
+
+/* Effet d'hover */
+li:hover::after {
+    transform: scaleX(1); /* Pour afficher la barre lors du survol */
+}
+
+/* Style du main */
+
+/* First Bloc */
+
+#FirstBlock {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    margin: auto;
+}
+
+#FirstBlock h1 {
+    margin-top: 50px;
+    /* Prend toutes la place disponible */
+    flex-grow: 1;
+    font-size: 10vw;
+    text-align: center;
+    font-family: 'Syne', serif;
+    /* Reduit l'ecart entre les lignes */
+    line-height: 1;
+    font-weight: bold;
+}
+
+#FirstBlock p {
+    margin: 50px;
+    text-align: center;
+    justify-content: center;
+    font-size: 2vw;
+    margin-bottom: 50px;
+    opacity: 0.7;
+}
+
+/* Second Block */
+#SecondBlock {
+    background-color: rgb(157, 31, 246);
+}
+
+#video {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    opacity: 0.6;
+}
+
+/* Third Block */
+#ThirdBlock {
+    margin-top: 80px;
+}
+
+.wrapper .carousel {
+    white-space: nowrap;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.carousel img {
+    height: 350px;
+    width: 608px;
+    object-fit: cover;
+    margin: 80px;
+    filter: grayscale(100%);
+    transition: filter 0.5s ease;
+}
+
+
+
+.carousel img:hover {
+    filter: grayscale(0%);
+    transition: filter 0.5s ease;
+}
+
+
+#navArrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#carouselProgressBar {
+    display: flex;
+    margin: 20px;
+}
+
+
+.circle {
+    height: 10px;
+    width: 10px;
+    border: 1px solid white;
+    border-radius: 50%;
+    margin: 5px;
+    opacity: 0.5;
+    transition: background-color 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+}
+
+.filled {
+    background-color: white;
+    opacity: 1;
+    width: 50px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease, opacity 0.3s ease, width 0.3s ease;
+}
+
+
+
+
+/* Responsive */
+@media screen and (min-width: 768px){
+
+    header {
+        justify-content: space-around;
+    }
+
+    /* Annule l'état de base des listes */
+    ul {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    /* TO DO : Penser a enlever l'effet cursor pointer lors d'un hover sur le nav */
+
+    /* Mets les éléments de la liste en flex */
+    ul {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    li {
+        margin: 0 20px;
+    }
+    nav {
+        display: block;
+    }
+    #navinpurple {
+        color: rgb(157, 31, 246);
+    }
+
+    #video {
+        height: 580px;
+    }
+}
